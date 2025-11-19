@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EcoSpend</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="app-header">
+<h1>EcoSpend</h1>
+<p class="subtitle">Smart habit + expense tracker for everyday green living</p>
+</header>
+
+
+<main class="container">
+<section class="card menu-card">
+<nav class="menu-grid">
+<a class="menu-item" href="habit.html">🌿 Eco Habits</a>
+<a class="menu-item" href="expense.html">💸 Expenses</a>
+<a class="menu-item" href="stats.html">📊 Statistics</a>
+<a class="menu-item" href="settings.html">⚙️ Settings</a>
+</nav>
+</section>
+
+
+<section class="card quick-summary" id="quickSummary">
+<!-- Quick summary filled by JS if available -->
+<div class="summary-item">
+<h3 id="summaryEco">Eco Points</h3>
+<p id="summaryEcoVal">-</p>
+</div>
+<div class="summary-item">
+<h3 id="summaryExpense">Expenses</h3>
+<p id="summaryExpenseVal">-</p>
+</div>
+<div class="summary-item">
+<h3 id="summarySaving">Estimated Savings</h3>
+<p id="summarySavingVal">-</p>
+</div>
+</section>
+
+
+</main>
+
+
+<footer class="app-footer">
+<p>Made with ❤️ for a greener life.</p>
+</footer>
+
+
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
