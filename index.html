@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="startPage">
+        <h1>Selamat Datang di Kuis Sederhana!</h1>
+        <button class="start-button" id="startButton">Start</button>
+    </div>
+
+    <div class="container" id="quizPage" style="display:none;">
         <h1 class="session-title">Sesi <span id="sessionNumber">1</span>/5</h1>
+        <div class="progress-container">
+            <div class="progress-info">
+                <div class="flex items-center gap-2">
+                    <span class="award-icon">🏆</span>
+                    <span class="text-sm text-gray-700">
+                        <span class="text-slate-700">Pertanyaan <span id="currentQuestion">1</span></span> dari <span id="totalQuestions">10</span>
+                    </span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-gray-700">Skor:</span>
+                    <span class="text-lg" id="score">0/0</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
         <p class="question" id="questionText">Soal akan muncul di sini...</p>
         <div class="choices" id="choicesContainer">
             <button class="choice-button" data-index="0">Pilihan 1</button>
@@ -17,9 +39,19 @@
             <button class="choice-button" data-index="3">Pilihan 4</button>
         </div>
         <button class="next-button" id="nextButton" disabled>Soal Berikutnya</button>
-        <div class="score orange" id="scoreText">Skor: 0</div>
     </div>
+
+    <div class="container" id="scorePage" style="display:none;">
+        <h1>Kuis Selesai!</h1>
+        <p>Skor Anda: <span id="finalScore">0</span></p>
+        <button class="restart-button" id="restartButton">Restart</button>
+    </div>
+
+    <div class="animated-background">
+        <div class="gradient-animation"></div>
+    </div>
+    <div class="floating-particles"></div>
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
