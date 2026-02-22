@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kuis Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="session-title">Sesi <span id="sessionNumber">1</span>/5</h1>
+        <p class="question" id="questionText">Soal akan muncul di sini...</p>
+        <div class="choices" id="choicesContainer">
+            <button class="choice-button" data-index="0">Pilihan 1</button>
+            <button class="choice-button" data-index="1">Pilihan 2</button>
+            <button class="choice-button" data-index="2">Pilihan 3</button>
+            <button class="choice-button" data-index="3">Pilihan 4</button>
+        </div>
+        <button class="next-button" id="nextButton" disabled>Soal Berikutnya</button>
+        <div class="score orange" id="scoreText">Skor: 0</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

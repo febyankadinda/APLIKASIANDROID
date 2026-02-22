@@ -1,0 +1,111 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E0F2F1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Gaya Judul Sesi */
+.session-title {
+    font-size: 24px;
+    color: #37474F;
+    margin-bottom: 20px;
+}
+
+/* Gaya Soal */
+.question {
+    font-size: 18px;
+    color: #37474F;
+    margin-bottom: 30px;
+    min-height: 50px; /* Menambahkan tinggi minimum */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gaya Tombol Pilihan */
+.choice-button {
+    background-color: #AED581;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Menambahkan animasi transform */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.choice-button:hover {
+    background-color: #689F38;
+}
+
+.choice-button:disabled {
+    background-color: #BDBDBD;
+    cursor: not-allowed;
+}
+
+.choice-button:active {
+    transform: scale(0.95); /* Efek tekan tombol */
+}
+
+/* Gaya Tombol Berikutnya */
+.next-button {
+    background-color: #FFCC80;
+    border: none;
+    border-radius: 5px;
+    color: #37474F;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Menambahkan animasi transform */
+}
+
+.next-button:hover {
+    background-color: #FFA726;
+}
+
+.next-button:disabled {
+    background-color: #BDBDBD;
+    cursor: not-allowed;
+}
+
+.next-button:active {
+    transform: scale(0.95); /* Efek tekan tombol */
+}
+
+/* Gaya Skor */
+.score {
+    font-size: 20px;
+    margin-top: 20px;
+    transition: color 0.3s ease; /* Transisi warna untuk animasi */
+}
+
+.score.green {
+    color: green;
+}
+
+.score.red {
+    color: red;
+}
+
+.score.orange {
+    color: orange;
+}
