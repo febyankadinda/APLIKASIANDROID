@@ -1,4 +1,3 @@
-/* style.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #E0F2F1;
@@ -7,6 +6,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden; /* Hide scrollbars caused by particles */
 }
 
 .container {
@@ -17,27 +17,114 @@ body {
     width: 80%;
     max-width: 600px;
     text-align: center;
+    z-index: 2; /* Ensure container is above background animations */
+    position: relative; /* Needed for z-index to work */
+    transition: transform 0.3s ease;
 }
 
-/* Gaya Judul Sesi */
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Background Animations */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #454545, #555555, #454545);
+    background-size: 300% 300%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: 0;
+}
+
+.gradient-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left, #555555, #696969, #555555);
+    background-size: 300% 300%;
+    animation: reverseGradient 12s ease infinite;
+    opacity: 0.5;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes reverseGradient {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-particles:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="1" fill="white"/></svg>');
+    animation: floatParticles 20s linear infinite;
+}
+
+@keyframes floatParticles {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Session Title */
 .session-title {
     font-size: 24px;
     color: #37474F;
     margin-bottom: 20px;
 }
 
-/* Gaya Soal */
+/* Question */
 .question {
     font-size: 18px;
     color: #37474F;
     margin-bottom: 30px;
-    min-height: 50px; /* Menambahkan tinggi minimum */
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Gaya Tombol Pilihan */
+/* Choice Button */
 .choice-button {
     background-color: #AED581;
     border: none;
@@ -47,7 +134,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Menambahkan animasi transform */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     width: 100%;
     box-sizing: border-box;
 }
@@ -62,10 +149,20 @@ body {
 }
 
 .choice-button:active {
-    transform: scale(0.95); /* Efek tekan tombol */
+    transform: scale(0.95);
 }
 
-/* Gaya Tombol Berikutnya */
+.choice-button.correct {
+    background-color: #4CAF50; /* Green for correct answer */
+    color: white;
+}
+
+.choice-button.incorrect {
+    background-color: #F44336; /* Red for wrong answer */
+    color: white;
+}
+
+/* Next Button */
 .next-button {
     background-color: #FFCC80;
     border: none;
@@ -75,7 +172,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Menambahkan animasi transform */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .next-button:hover {
@@ -88,14 +185,14 @@ body {
 }
 
 .next-button:active {
-    transform: scale(0.95); /* Efek tekan tombol */
+    transform: scale(0.95);
 }
 
-/* Gaya Skor */
+/* Score */
 .score {
     font-size: 20px;
     margin-top: 20px;
-    transition: color 0.3s ease; /* Transisi warna untuk animasi */
+    transition: color 0.3s ease;
 }
 
 .score.green {
@@ -108,4 +205,80 @@ body {
 
 .score.orange {
     color: orange;
+}
+
+/* Start Button */
+.start-button {
+    background-color: #2196F3;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+    background-color: #1976D2;
+}
+
+.start-button:active {
+    transform: scale(0.95);
+}
+
+/* Restart Button */
+.restart-button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restart-button:hover {
+    background-color: #43A047;
+}
+
+.restart-button:active {
+    transform: scale(0.95);
+}
+
+/* Progress Styles */
+.progress-container {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.award-icon {
+    font-size: 1.2em;
+    color: #37474F;
+}
+
+.progress-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #455A64, #607D8B);
+    border-radius: 5px;
+    transition: width 0.3s ease;
 }
